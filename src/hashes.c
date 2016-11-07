@@ -1,3 +1,7 @@
+/***
+ * Some helpers in identifying hashes
+ */
+
 #include <stdlib.h>
 
 #include "mh/hashes.h"
@@ -26,7 +30,11 @@ static const struct hash_info {
 
 mh_assert_static(sizeof(hash_infos) / sizeof(hash_infos[0]) == MH_H_COUNT);
 
-// Searches for given hash in hash info table
+/**
+ * Given the id, return a struct that shows the id, name, and default length
+ * @param hash the id, such as MH_H_SHA1
+ * @returns a hash_info struct that has an int, const char* and int
+ */
 static const struct hash_info *find_hash(int hash) {
 	// naive search, could be replaced with binary
 	unsigned int i = 0;
@@ -38,12 +46,21 @@ static const struct hash_info *find_hash(int hash) {
 	return NULL;
 }
 
+/**
+ * Given the id, return the hash name
+ * @param hash the id (such as MH_H_SHA1)
+ * @returns the name as text, such as "sha1"
+ */
 const char *mh_hash_name(int hash) {
 	const struct hash_info *info = find_hash(hash);
 	return (info != NULL) ? info->name : NULL;
 }
 
-
+/**
+ * Given the id, return the default length
+ * @param hash the id
+ * @returns the default length of that hash
+ */
 int mh_hash_default_length(int hash) {
 	const struct hash_info *info = find_hash(hash);
 	return (info != NULL) ? info->length : MH_E_UNKNOWN_CODE;

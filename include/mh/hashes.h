@@ -31,7 +31,16 @@ static const int mh_all_hashes[] = {
 
 #define MH_H_COUNT (int)(sizeof(mh_all_hashes) / sizeof(mh_all_hashes[0]))
 
+/**
+ * Given the id, return the hash name
+ * @param hash the id (such as MH_H_SHA1)
+ * @returns the name as text, such as "sha1"
+ */
 const char *mh_hash_name(int hash);
 
-// returns length in bytes or if returns is < 0 it is an error
+/**
+ * Given the id, return the default length
+ * @param hash the id
+ * @returns the default length of that hash
+ */
 int mh_hash_default_length(int hash);

@@ -1,5 +1,10 @@
 #include "mh/errors.h"
 
+/**
+ * Convert an error code into a string
+ * @param code the error code
+ * @returns the error as text
+ */
 const char *mh_error_string(int code) {
 	switch (code) {
 		case MH_E_NO_ERROR:
