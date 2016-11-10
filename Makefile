@@ -16,22 +16,16 @@ LDLIBS =
 TARGET_LIB = mulithash.a
 TARGET_BIN = multihash
 
-MAIN = src/main.c
-MAIN_O = $(MAIN:.c=.o)
-
 SRCS = src/hashes.c src/errors.c src/multihash.c
 OBJS = $(SRCS:.c=.o)
 
 src/%.o: src/%.c
 	$(CC) $(CFLAGS) -c -I include $< -o $@
 
-all: $(TARGET_LIB) $(TARGET_BIN)
+all: $(TARGET_LIB)
 
 $(TARGET_LIB): $(OBJS)
 	ar rcs $@ $^
-
-$(TARGET_BIN): $(MAIN_O) $(TARGET_LIB)
-	$(CC) $(LDFLAGS) $^ -o $@
 
 # Tests
 
