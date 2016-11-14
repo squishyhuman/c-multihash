@@ -44,7 +44,7 @@ int mh_new_length(int code, size_t digest_len);
  * @param digest the data within the multihash
  * @returns error (if < 0) or 0
  */
-int mh_new(unsigned char *buffer, int code, const unsigned char *digest,
+int mh_new(unsigned char* buffer, int code, const unsigned char *digest,
 	size_t digest_len);
 
 #endif /* end of include guard */

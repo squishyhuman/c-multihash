@@ -1,6 +1,8 @@
+DEBUG=true
+
 CC = gcc
 RM = rm -f
-CFLAGS = -fPIC -g -O2 -std=c99 \
+CFLAGS = -fPIC -O0 -std=c99 \
 	-Wall -Wextra -pedantic -Werror \
 	-Wdeclaration-after-statement \
 	-Wno-format-zero-length \
@@ -10,10 +12,14 @@ CFLAGS = -fPIC -g -O2 -std=c99 \
 	-Wunused \
 	-Wvla
 
+ifdef DEBUG
+CFLAGS += -g3
+endif
+
 LDFLAGS = -g
 LDLIBS =
 
-TARGET_LIB = mulithash.a
+TARGET_LIB = libmultihash.a
 TARGET_BIN = multihash
 
 SRCS = src/hashes.c src/errors.c src/multihash.c

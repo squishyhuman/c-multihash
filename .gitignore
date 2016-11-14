@@ -5,6 +5,7 @@
 !**/
 
 *.o
+*.a
 .cproject
 .project
 .settings/language.settings.xml
