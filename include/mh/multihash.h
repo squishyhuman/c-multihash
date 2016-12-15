@@ -26,7 +26,7 @@ int mh_multihash_length(const unsigned char *multihash, size_t len);
  * @param digest the results
  * @returns error if less than zero, otherwise 0
  */
-int mh_multihash_digest(unsigned char *multihash, size_t len,
+int mh_multihash_digest(const unsigned char *multihash, size_t len,
 	 unsigned char **digest, size_t *digest_len);
 
 /**

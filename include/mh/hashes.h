@@ -1,3 +1,5 @@
+#pragma once
+
 #include "errors.h"
 
 // definitions of hash functions

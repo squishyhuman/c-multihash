@@ -85,14 +85,14 @@ int mh_multihash_length(const unsigned char *mh, size_t len) {
  * @param digest the results
  * @returns error if less than zero, otherwise 0
  */
-int mh_multihash_digest(unsigned char *multihash, size_t len, unsigned char **digest,
+int mh_multihash_digest(const unsigned char *multihash, size_t len, unsigned char **digest,
 		size_t *digest_len) {
 	int err = check_multihash(multihash, len);
 	if (err)
 		return err;
 
 	(*digest_len) = (size_t) mh_multihash_length(multihash, len);
-	(*digest) = multihash + 2; // Always true without varint
+	(*digest) = (unsigned char*)multihash + 2; // Always true without varint
 
 	return 0;
 }
