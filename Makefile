@@ -25,10 +25,10 @@ TARGET_BIN = multihash
 SRCS = src/hashes.c src/errors.c src/multihash.c
 OBJS = $(SRCS:.c=.o)
 
+all: $(TARGET_LIB)
+
 src/%.o: src/%.c
 	$(CC) $(CFLAGS) -c -I include $< -o $@
-
-all: $(TARGET_LIB)
 
 $(TARGET_LIB): $(OBJS)
 	ar rcs $@ $^
